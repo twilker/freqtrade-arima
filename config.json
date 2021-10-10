@@ -1,9 +1,9 @@
-
 {
     "max_open_trades": 1,
     "stake_currency": "USDT",
     "stake_amount": "unlimited",
     "tradable_balance_ratio": 0.99,
+    "dry_run_wallet": 600.0,
     "fiat_display_currency": "EUR",
     "timeframe": "5m",
     "dry_run": true,
@@ -13,8 +13,18 @@
         "sell": 30,
         "unit": "minutes"
     },
+    "order_types": {
+      "buy": "market",
+      "sell": "market",
+      "emergencysell": "market",
+      "forcebuy": "market",
+      "forcesell": "market",
+      "stoploss": "market",
+      "stoploss_on_exchange": false,
+      "stoploss_on_exchange_interval": 60
+    },
     "bid_strategy": {
-        "price_side": "bid",
+        "price_side": "ask",
         "ask_last_balance": 0.0,
         "use_order_book": true,
         "order_book_top": 1,
@@ -24,9 +34,9 @@
         }
     },
     "ask_strategy": {
-        "price_side": "ask",
+        "price_side": "bid",
         "use_order_book": true,
-        "order_book_top": 1
+        "order_book_top": 1,
     },
     "exchange": {
         "name": "binance",
@@ -38,19 +48,16 @@
             "rateLimit": 200
         },
         "pair_whitelist": [
+            "BTC/USDT"
         ],
         "pair_blacklist": [
             "BNB/.*"
         ]
     },
     "pairlists": [
-        {
-            "method": "VolumePairList",
-            "number_assets": 20,
-            "sort_key": "quoteVolume",
-            "min_value": 0,
-            "refresh_period": 1800
-        }
+      {
+        "method": "StaticPairList"
+      }
     ],
     "edge": {
         "enabled": false,
@@ -82,7 +89,7 @@
         "username": "",
         "password": ""
     },
-    "bot_name": "freqtrade",
+    "bot_name": "freqtrade-develop",
     "initial_state": "running",
     "forcebuy_enable": false,
     "internals": {
