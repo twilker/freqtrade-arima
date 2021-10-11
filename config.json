@@ -6,6 +6,7 @@
     "dry_run_wallet": 600.0,
     "fiat_display_currency": "EUR",
     "timeframe": "5m",
+    "dataformat_ohlcv": "hdf5",
     "dry_run": true,
     "cancel_open_orders_on_exit": false,
     "unfilledtimeout": {
